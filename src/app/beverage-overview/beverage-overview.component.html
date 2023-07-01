@@ -1,0 +1,13 @@
+<div class="container">
+  <h5>Beverage Overview</h5>
+    <div class="beverage-list">
+      <div class="row">
+      <div *ngFor="let beverage of beverageList" class="col-md-3">
+        <img [src]="beverage.image" class="img-fluid" (click)="showBeverage(beverage.id)">
+        <h3>{{ beverage.name }}</h3>
+        <p>Price: {{ beverage.price }}</p>
+        <p>Quantity: {{ beverage.quantity }}</p>
+     </div>
+      </div>
+    </div>
+</div>
