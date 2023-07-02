@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\beverage-details",
+    "\\src\\app\\beverage-overview",
+    "\\src\\app\\create-beverage",
+    "\\src\\app\\models",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\create-beverage\\create-beverage.component.ts",
+  "PreviewInSolutionExplorer": false
+}

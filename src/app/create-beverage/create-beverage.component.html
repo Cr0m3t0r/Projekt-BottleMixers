@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="dtoBeverage.name" required>
+  </div>
+  <div>
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" name="image" [(ngModel)]="dtoBeverage.image" required>
+  </div>
+  <div>
+    <label for="liter">Liter:</label>
+    <input type="number" id="liter" name="liter" [(ngModel)]="dtoBeverage.liter" required>
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" [(ngModel)]="dtoBeverage.price" required>
+  </div>
+  <div>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" [(ngModel)]="dtoBeverage.quantity" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="dtoBeverage.description" required></textarea>
+  </div>
+  <button type="submit">Save</button>
+</form>
+<p>form = {{dtoBeverage | json}}</p>
+<input type="number" [(ngModel)]="beverageIdToDelete" placeholder="Enter beverage ID">
+<button (click)="deleteBeverage()">Delete Beverage</button>

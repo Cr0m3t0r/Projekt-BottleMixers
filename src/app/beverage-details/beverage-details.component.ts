@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Beverage} from "../models/Beverage";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {BeverageService} from "../services/beverageService";
-import {switchMap} from "rxjs";
 
 @Component({
   selector: 'app-beverage-details',
@@ -14,7 +13,8 @@ export class BeverageDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private beverageService: BeverageService
+    private beverageService: BeverageService,
+    private router: Router
   ) {
   }
 
@@ -26,6 +26,10 @@ export class BeverageDetailsComponent implements OnInit {
         this.beverage = this.beverageService.getBeverageById(beverageId);
       }
     });
+  }
+
+  public returnToOverview(): void {
+    this.router.navigate(['/beverages']);
   }
 
 }
