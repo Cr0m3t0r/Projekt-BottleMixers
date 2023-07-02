@@ -1,0 +1,17 @@
+<div class="container">
+  <h5>Beverage Details</h5>
+  <div class="beverage-details">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="beverage.image" alt="Beverage Image" class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h3>{{ beverage.name }}</h3>
+        <p>Liter: {{beverage.liter}}</p>
+        <p>Price: {{ beverage.price }}</p>
+        <p>Quantity: {{ beverage.quantity }}</p>
+        <p>Description: {{ beverage.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
