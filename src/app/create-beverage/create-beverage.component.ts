@@ -23,13 +23,13 @@ export class CreateBeverageComponent {
   constructor(private beverageService: BeverageService) { }
 
   onSubmit() {
+    this.beverageService.createBeverage(this.dtoBeverage);
 
-
-    this.beverageService.createBeverage(this.dtoBeverage).subscribe(response => {
-      console.log('Beverage created:', response);
-    }, error => {
-      console.error('Error creating beverage:', error);
-    });
+    // this.beverageService.createBeverage(this.dtoBeverage).subscribe(response => {
+    //   console.log('Beverage created:', response);
+    // }, error => {
+    //   console.error('Error creating beverage:', error);
+    // });
   }
 
   deleteBeverage() {
@@ -38,15 +38,17 @@ export class CreateBeverageComponent {
       return;
     }
 
-    this.beverageService.deleteBeverage(this.beverageIdToDelete)
-      .subscribe(
-        () => {
-          console.log('Beverage deleted successfully');
-        },
-        error => {
-          console.error('Error deleting beverage:', error);
-        }
-      );
+    this.beverageService.deleteBeverage(this.beverageIdToDelete);
+
+    //this.beverageService.deleteBeverage(this.beverageIdToDelete)
+    //  .subscribe(
+    //    () => {
+    //       console.log('Beverage deleted successfully');
+    //     },
+    //     error => {
+    //       console.error('Error deleting beverage:', error);
+    //     }
+    // );
   }
 }
 

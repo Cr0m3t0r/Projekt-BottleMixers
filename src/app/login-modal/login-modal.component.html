@@ -1,14 +1,14 @@
-<mat-dialog-content>
+<mat-dialog-content class="login-modal-content">
   <h2>Login</h2>
   <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="email">
+    <input matInput placeholder="Username" [(ngModel)]="username">
   </mat-form-field>
   <mat-form-field>
     <input matInput type="password" placeholder="Password" [(ngModel)]="password">
   </mat-form-field>
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<mat-dialog-actions class="login-modal-actions">
   <button mat-button (click)="login()">Login</button>
   <button mat-button (click)="cancel()">Cancel</button>
 </mat-dialog-actions>

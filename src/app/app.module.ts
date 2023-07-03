@@ -7,12 +7,13 @@ import { CommonModule } from "@angular/common";
 import { BeverageDetailsComponent } from './beverage-details/beverage-details.component';
 import { RouterModule, Routes } from "@angular/router";
 import { CreateBeverageComponent } from './create-beverage/create-beverage.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   { path: 'beverage/:id', component: BeverageDetailsComponent },
@@ -38,7 +39,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule

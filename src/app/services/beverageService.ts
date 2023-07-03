@@ -24,14 +24,42 @@ export class BeverageService {
   constructor(private http: HttpClient) {
   }
 
-  createBeverage(beverage: DTOBeverage): Observable<Beverage> {
-    console.log("We made it here " + beverage.name)
-    return this.http.post<Beverage>(this.apiUrl, beverage);
+  createBeverage(beverage: DTOBeverage) {
+    let largestIdBeverage: Beverage | undefined;
+
+    for (const beverage of this.beverageList) {
+      if (!largestIdBeverage || beverage.id > largestIdBeverage.id) {
+        largestIdBeverage = beverage;
+      }
+    }
+    let id: number = 1;
+    if (largestIdBeverage) {
+      id = largestIdBeverage.id + 1;
+    }
+
+    const newBeverage = new Beverage(
+      id,
+      beverage.name,
+      beverage.image,
+      beverage.liter,
+      beverage.price,
+      beverage.quantity,
+      beverage.description
+    );
+    this.beverageList.push(newBeverage);
+    // console.log("We made it here " + beverage.name)
+    // return this.http.post<Beverage>(this.apiUrl, beverage); -> return Observable<Beverage>
   }
 
   deleteBeverage(beverageIdToDelete: number) {
-    const url = `${this.apiUrl}/${beverageIdToDelete}`;
-    return this.http.delete(url)
+    for (let i = 0; i < this.beverageList.length; i++) {
+      if (this.beverageList[i].id === beverageIdToDelete) {
+        this.beverageList.splice(i, 1);
+        break;
+      }
+    }
+    // const url = `${this.apiUrl}/${beverageIdToDelete}`;
+    // return this.http.delete(url)
   }
 
   getBeverages(): Beverage[] {

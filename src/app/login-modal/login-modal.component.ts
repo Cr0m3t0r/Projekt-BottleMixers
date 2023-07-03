@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { LoginService } from '../services/loginService';
 
 @Component({
   selector: 'app-login-modal',
@@ -7,13 +8,13 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./login-modal.component.css']
 })
 export class LoginModalComponent {
-  email: string = '';
+  username: string = '';
   password: string = '';
 
-  constructor(public dialogRef: MatDialogRef<LoginModalComponent>) { }
+  constructor(public dialogRef: MatDialogRef<LoginModalComponent>, private loginService: LoginService) { }
 
   login(): void {
-
+    this.loginService.login(this.username, this.password);
     this.dialogRef.close();
   }
 
